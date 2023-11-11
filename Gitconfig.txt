@@ -1,3 +1,10 @@
 git init
 git remote add origin linkkk
 git clone linkkk
+
+
+Para commitar:
+
+git add .
+git commit -m "nome do commit"
+git push origin main
