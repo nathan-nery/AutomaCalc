@@ -1,0 +1,3 @@
+git init
+git remote add origin linkkk
+git clone linkkk
