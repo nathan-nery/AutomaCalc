@@ -8,3 +8,16 @@ Para commitar:
 git add .
 git commit -m "nome do commit"
 git push origin main
+
+Mudança de Branch:
+
+#aqui você cria e entra na nova branch automaticamente
+git checkout -b NovaBranch
+git push origin NovaBranch
+
+Merge de branchs:
+
+#sai da branch criada e volta pra main
+git checkout main
+git merge NovaBranch
+git push origin main
