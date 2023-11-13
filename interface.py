@@ -1,9 +1,10 @@
 import customtkinter
-# import script
+from tkinter.filedialog import askopenfilename
 
-customtkinter.set_appearance_mode("dark")
 
-customtkinter.set_default_color_theme("dark-blue")
+customtkinter.set_appearance_mode("light")
+
+customtkinter.set_default_color_theme("green")
 
 root = customtkinter.CTk()
 
@@ -28,13 +29,23 @@ def obterValor():
     name = insertName.get()
     date = insertDate.get()
     time = insertTime.get()
-    print(name + '-' + date + '-' + time)
     global titulo
-    titulo = name + '-' + date + '-' + time
+    titulo = name + ' - ' + date + ' - ' + time
 
-# Ideia, para inserir a localização, abrir uma interface de busca de arquivo.
+def searchFile():
+    global file
+    file = askopenfilename()
 
-button = customtkinter.CTkButton(master=frame, text="Pronto!", command=obterValor)
+def start():
+    obterValor()
+    import script
+    script.activate(titulo)
+    
+
+buttonSearch = customtkinter.CTkButton(master=frame, text="Buscar arquivo", command=searchFile)
+buttonSearch.pack(pady=12, padx=10)
+
+button = customtkinter.CTkButton(master=frame, text="Pronto!", command=start)
 button.pack(pady=12, padx=10)
 
 root.mainloop()

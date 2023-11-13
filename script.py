@@ -1,38 +1,40 @@
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
-import openpyxl
 from interface import *
 
-workbook = Workbook()
+wb = Workbook()
 
-worksheet = workbook.active
+ws = wb.active
 # Salvar arquivo após fazer a alteração:
 # workbook.save('C:\\Users\\saude\\Desktop\\Nathan\\Projetos\\EditorDeCalc\\teste.xlsx')
 
-def activate():
+def activate(titulo):
 
-# local = input('Qual o diretório do arquivo? ')
-    #wb = openpyxl.load_workbook(local)
+    #local = input('Qual o diretório do arquivo? ')
+    
+    load_workbook(file)
 
-    worksheet['A1'] = 0
+    ws['A1'] = 0
 
-    worksheet.insert_rows(idx=1, amount=1)
+    ws.insert_rows(idx=1, amount=1)
 
-    worksheet.merge_cells('A1:W1')
+    ws.merge_cells('A1:W1')
 
-    worksheet['A1'] = titulo
+    ws['A1'] = titulo
 
-    cell = worksheet['A1']
-
+    cell = ws['A1']
     cell.font = Font(name='Calibri',
                     size='18',
                     bold=True)
+    ws.row_dimensions[1].height = 30
 
-    worksheet.row_dimensions[1].height = 30
+    for col in range(1,30):
+        cell = ws.cell(2,col)
+        cell.font = Font(bold=True)
+
     for row in range(1,60):
         for col in range(1,60):
-            cell = worksheet.cell(row,col)
+            cell = ws.cell(row,col)
             cell.alignment = Alignment(horizontal='center')
 
-    #workbook.save(local)
-# definir local por meio de janela que abre e acessa os arquivos para coletar diretório
+    wb.save(file)
