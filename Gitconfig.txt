@@ -2,6 +2,8 @@ git init
 git remote add origin linkkk
 git clone linkkk
 
+Se pedir senha e não aceitar o login e senha normais, criar um Token em:
+GitHub > Settings > Developer settings (lá embaixo) > Personal access Tokens > Tokens > Generate new Token
 
 Para commitar:
 
