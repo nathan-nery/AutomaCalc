@@ -2,9 +2,6 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
 from interface import *
 
-wb = Workbook()
-
-ws = wb.active
 # Salvar arquivo após fazer a alteração:
 # workbook.save('C:\\Users\\saude\\Desktop\\Nathan\\Projetos\\EditorDeCalc\\teste.xlsx')
 
@@ -12,9 +9,9 @@ def activate(titulo):
 
     #local = input('Qual o diretório do arquivo? ')
     
-    load_workbook(file)
+    wb = load_workbook(file)
 
-    ws['A1'] = 0
+    ws = wb.active
 
     ws.insert_rows(idx=1, amount=1)
 
@@ -31,6 +28,10 @@ def activate(titulo):
     for col in range(1,30):
         cell = ws.cell(2,col)
         cell.font = Font(bold=True)
+    
+    # Colunas que não são hidden: E F P R S U V + W
+    for col in range('A', 'B', 'C', 'D', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'Q', 'T'):
+        ws.column_dimensions[col].hidden= True
 
     for row in range(1,60):
         for col in range(1,60):
