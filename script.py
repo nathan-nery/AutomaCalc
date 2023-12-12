@@ -30,8 +30,11 @@ def activate(titulo):
         cell.font = Font(bold=True)
     
     # Colunas que não são hidden: E F P R S U V + W
-    for col in range('A', 'B', 'C', 'D', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'Q', 'T'):
-        ws.column_dimensions[col].hidden= True
+    for c in ('A', 'B', 'C', 'D', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'Q', 'T'):
+        ws.column_dimensions[c].hidden= True
+
+    #for col in range('a'):
+    #ws.column_dimensions['A'].hidden = True
 
     for row in range(1,60):
         for col in range(1,60):
