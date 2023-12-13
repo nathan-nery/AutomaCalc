@@ -5,7 +5,7 @@ from interface import *
 # Salvar arquivo após fazer a alteração:
 # workbook.save('C:\\Users\\saude\\Desktop\\Nathan\\Projetos\\EditorDeCalc\\teste.xlsx')
 
-def activate(titulo):
+def activate(titulo, name):
 
     #local = input('Qual o diretório do arquivo? ')
     
@@ -14,9 +14,7 @@ def activate(titulo):
     ws = wb.active
 
     ws.insert_rows(idx=1, amount=1)
-
-    ws.merge_cells('A1:W1')
-
+  
     ws['A1'] = titulo
 
     cell = ws['A1']
@@ -29,16 +27,21 @@ def activate(titulo):
         cell = ws.cell(2,col)
         cell.font = Font(bold=True)
     
-    # Colunas que não são hidden: E F P R S U V + W
-    for c in ('A', 'B', 'C', 'D', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'Q', 'T'):
-        ws.column_dimensions[c].hidden= True
+    # Hapvida - Colunas que não são hidden: E F P R S U V + W  *** K e M se tiver dengue
+    if name == "Hapvida":
+        for c in ('A', 'B', 'C', 'D', 'G', 'H', 'I', 'J', 'L', 'N', 'O', 'Q', 'T'):
+            ws.column_dimensions[c].hidden= True
+        ws.merge_cells('A1:W1')
 
-    #for col in range('a'):
-    #ws.column_dimensions['A'].hidden = True
+# NS1 - Colunas que não são hidden: D E F H L M R S T U W X
+    elif name == "NS1":
+        for d in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'N', 'O', 'P', 'Q', 'V'):
+            ws.column_dimensions[d].hidden= True
+        ws.merge_cells('A1:X1')
 
-    for row in range(1,60):
-        for col in range(1,60):
+    for row in range(1,80):
+        for col in range(1,80):
             cell = ws.cell(row,col)
-            cell.alignment = Alignment(horizontal='center')
+            cell.alignment = Alignment(horizontal='center', vertical='center')
 
     wb.save(file)
