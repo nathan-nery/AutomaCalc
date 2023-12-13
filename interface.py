@@ -80,8 +80,8 @@ def searchFile():
 
 def show_checkmark():
     # Show some positive message with the checkmark icon
-    message_box = CTkMessagebox(message="Planilha ajustada!", icon="check", option_1="Fechar")
-    message_box.bind("<Option-1>", lambda event: root.destroy())
+    CTkMessagebox(message="Planilha ajustada!", icon="check", option_1="Fechar")
+    root.after(5000, root.destroy)
 
 def start():
     obterValor()
