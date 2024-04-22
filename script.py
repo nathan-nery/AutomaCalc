@@ -29,8 +29,8 @@ def activate(titulo, name):
     if name == "Hapvida":
         for c in ('B', 'C', 'D', 'G', 'H', 'I', 'J', 'L', 'N', 'O', 'Q', 'T'):
             ws.column_dimensions[c].hidden= True
-        ws.merge_cells('A1:W1')
-        ws['W2'] = 'Dist'
+        ws.merge_cells('A1:X1')
+        ws['X2'] = 'Dist'
         ws['F2'] = 'DataNasc'
 
         for d in ('B', 'C', 'D', 'G', 'H', 'I', 'J', 'L', 'N', 'O', 'Q', 'T'):
