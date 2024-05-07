@@ -27,26 +27,31 @@ def activate(titulo, name):
     redFill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
     # Hapvida - Colunas que não são hidden: E F P R S U V + W  *** K e M se tiver dengue
     if name == "Hapvida":
-        for c in ('B', 'C', 'D', 'G', 'H', 'I', 'J', 'L', 'N', 'O', 'Q', 'T'):
+        for c in ('B', 'C', 'D', 'G', 'H', 'I', 'J', 'L', 'N', 'O', 'Q', 'R', 'T'):
             ws.column_dimensions[c].hidden= True
+            color = c + '2'
+            ws[color].fill = redFill
         ws.merge_cells('A1:X1')
         ws['X2'] = 'Dist'
         ws['F2'] = 'DataNasc'
-
-        for d in ('B', 'C', 'D', 'G', 'H', 'I', 'J', 'L', 'N', 'O', 'Q', 'T'):
-            color = d + '2'
-            #print(color)
-            ws[color].fill = redFill
+        ws['A2'] = 'DataSis'
+        ws['P2'] = 'Proced'
+        ws['S2'] = 'Result'
 
     # NS1 - Colunas que não são hidden: D E F H L R S T U W X
     elif name == "NS1":
-        for c in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q', 'V'):
+
+        # for c in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q', 'V','Z'):
+        # Abaixo: Utilizada APENAS quando a sorologia está suspensa! Se há sorologia utilizar a de cima.
+        for c in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q','U', 'V','W', 'X', 'Z'):
             ws.column_dimensions[c].hidden= True
             color = c + '2'
             ws[color].fill = redFill
         ws.merge_cells('A1:Y1')
         ws['H2'] = 'DataNasc'
+        ws['A2'] = 'DataSis'
         ws['X2'] = 'Num'
+        ws['P2'] = 'Proced'
     
     elif name == "GAL":
         for c in ('C','D','I','J','L','N'):
