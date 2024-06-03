@@ -40,6 +40,9 @@ botao4.pack(pady=12, padx=10)
 botao4 = customtkinter.CTkRadioButton(master=frame, text="Municipais - Ocultar", variable= radio_var, value='Municipais - Ocultar', command=get_rad)
 botao4.pack(pady=12, padx=10)
 
+botao5 = customtkinter.CTkRadioButton(master=frame, text="Mais Saúde", variable= radio_var, value="Mais Saúde", command=get_rad)
+botao5.pack(pady=12, padx=10)
+
 my_label = customtkinter.CTkLabel(root, text="")
 my_label.pack(pady=10)
 
