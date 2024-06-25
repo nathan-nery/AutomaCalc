@@ -152,11 +152,11 @@ def activate(titulo, name):
         for col in range(1,30):
             cell = ws.cell(2,col)
             cell.font = Font(bold=True)
-        for c in ('A', 'F', 'G', 'J', 'K', 'L', 'M', 'N'):
+        for c in ('A', 'F', 'G', 'J', 'K', 'I', 'M', 'N'):
             ws.column_dimensions[c].hidden= True
-        ws.merge_cells('A1:Q1')
+        ws.merge_cells('A1:S1')
         ws['E2'] = "Dist"
-        ws['I2'] = "DataNasc"
+        ws['L2'] = "DataNasc"
         for row in range(1,2500):
             for col in range(1,80):
                 cell = ws.cell(row,col)
