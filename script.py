@@ -13,15 +13,15 @@ def activate(titulo, name):
             ws = wb[k]
 
             ws.insert_rows(idx=1, amount=1)
-
+            ws.delete_cols(1, 1)
             if k == '315':
-                ws['A1'] = 'Sinha Junq ' + titulo
+                ws['A1'] = 'Sinha Junq (CNES 2078791) ' + titulo
             elif k == '382':
-                ws['A1'] = 'Diag Joao Pent ' + titulo
+                ws['A1'] = 'Diag Joao Pent (CNES 9831665) ' + titulo
             elif k == '383':
-                ws['A1'] = 'Diag Jd Sumare ' + titulo
+                ws['A1'] = 'Diag Jd Sumare (CNES 9564284)' + titulo
             elif k == '397':
-                ws['A1'] = 'São Francisco ' + titulo
+                ws['A1'] = 'São Francisco (CNES 2079275)' + titulo
                 
             cell = ws['A1']
             
@@ -54,7 +54,7 @@ def activate(titulo, name):
             # ws = wb[k]
             ws = wb.active
             ws.insert_rows(idx=1, amount=1)
-
+            ws.delete_cols(1, 1)
             ws['A1'] = titulo
                 
             cell = ws['A1']
