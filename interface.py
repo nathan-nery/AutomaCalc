@@ -28,8 +28,8 @@ radio_var = customtkinter.StringVar(value="other")
 botao1 = customtkinter.CTkRadioButton(master=frame, text="Hapvida", variable= radio_var, value='Hapvida', command=get_rad)
 botao1.pack(pady=12, padx=10)
 
-botao2 = customtkinter.CTkRadioButton(master=frame, text="NS1", variable= radio_var, value='NS1', command=get_rad)
-botao2.pack(pady=12, padx=10)
+# botao2 = customtkinter.CTkRadioButton(master=frame, text="NS1", variable= radio_var, value='NS1', command=get_rad)
+# botao2.pack(pady=12, padx=10)
 
 botao3 = customtkinter.CTkRadioButton(master=frame, text="GAL Dengue", variable= radio_var, value='GAL', command=get_rad)
 botao3.pack(pady=12, padx=10)
