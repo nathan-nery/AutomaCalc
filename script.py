@@ -104,6 +104,10 @@ def activate(titulo, name):
                     cell = ws.cell(row,col)
                     cell.alignment = Alignment(horizontal='center', vertical='center')
 
+                    
+    # NS1 DANDO PROBLEMA COM HEADER E FOOTER
+
+
     # NS1 - Colunas que não são hidden: D E F H L R S T U W X
     # elif name == "NS1":
     #     ws = wb.active
@@ -194,19 +198,10 @@ def activate(titulo, name):
 
     elif name == "Banco Dengue":
         ws = wb.active
-        # ws.insert_rows(idx=1, amount=1)
-
-        # ws['A1'] = titulo
-
-        # cell = ws['A1']
-        
-        # cell.font = Font(name='Calibri',
-        #                 size='18',
-        #                 bold=True)
-        
-        # ws.row_dimensions[1].height = 30
-
-        for c in ('B', 'C', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CT', 'CU', 'CV', 'CW', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX', 'DY', 'DZ', 'EA', 'EB', 'EC', 'ED', 'EE', 'EF', 'EG', 'EH', 'EI', 'EJ', 'EK', 'EL', 'EM', 'EN', 'EO', 'EP', 'EQ', 'ER', 'ES', 'ET', 'EU', 'EV', 'EW', 'EX', 'EY', 'EZ', 'FA', 'FB', 'FC'):
+        #'BS', 'BT', --> Sorologia
+        #'BY', 'BZ', --> PCR
+        #'EM', --> Observação
+        for c in ('B', 'C', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BW', 'BX', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CT', 'CU', 'CV', 'CW', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX', 'DY', 'DZ', 'EA', 'EB', 'EC', 'ED', 'EE', 'EF', 'EG', 'EH', 'EI', 'EJ', 'EK', 'EL', 'EN', 'EO', 'EP', 'EQ', 'ER', 'ES', 'ET', 'EU', 'EV', 'EW', 'EX', 'EY', 'EZ', 'FA', 'FB', 'FC'):
             ws.column_dimensions[c].hidden= True
             color = c + '1'
             ws[color].fill = redFill
@@ -217,11 +212,16 @@ def activate(titulo, name):
         ws['M1'] = 'Nome'
         ws['N1'] = 'Dt Nasc'
         ws['AA1'] = 'Dist'
-        ws['BU1'] = 'NS1'
-        ws['BV1'] = 'Dt Ns1'
+        ws['BS1'] = 'Dt Sorol'
+        ws['BT1'] = 'Sorol'
+        ws['BU1'] = 'Dt Ns1'
+        ws['BV1'] = 'NS1'
+        ws['BY1'] = 'Dt PCR'
+        ws['BZ1'] = 'PCR'
         ws['CR1'] = 'Final'
         ws['CS1'] = 'Crit'
         ws['CX1'] = 'Dt Enc'
+        ws['EM1'] = 'Obs'
 
         # for row in range(1,6500):
         #     for col in range(1,800):
