@@ -10,16 +10,37 @@ def activate(titulo, name):
     # Hapvida - Colunas que não são hidden: E F P R S U V + W  *** K e M se tiver dengue
     if name == "Hapvida":
         for k in ('315', '382', '383', '397'):
+            # ws = wb[k]
+
+            # ws.insert_rows(idx=1, amount=1)
+            # # ws.delete_cols(1, 1)
+            # if k == '315':
+            #     ws.delete_cols(1, 1)
+            #     ws['A1'] = 'Sinha Junq (CNES 2078791) ' + titulo
+            # elif k == '382':
+            #     ws.delete_cols(1, 1)
+            #     ws['A1'] = 'Diag Joao Pent (CNES 9831665) ' + titulo
+                
+            # elif k == '383':
+            #     ws.delete_cols(1, 1)
+            #     ws['A1'] = 'Diag Jd Sumare (CNES 9564284)' + titulo
+                
+            # elif k == '397':
+            #     ws.delete_cols(1, 1)
+            #     ws['A1'] = 'São Francisco (CNES 2079275)' + titulo
+
             ws = wb[k]
 
             ws.insert_rows(idx=1, amount=1)
-            ws.delete_cols(1, 1)
+            # ws.delete_cols(1, 1)
             if k == '315':
                 ws['A1'] = 'Sinha Junq (CNES 2078791) ' + titulo
             elif k == '382':
                 ws['A1'] = 'Diag Joao Pent (CNES 9831665) ' + titulo
+                
             elif k == '383':
                 ws['A1'] = 'Diag Jd Sumare (CNES 9564284)' + titulo
+                
             elif k == '397':
                 ws['A1'] = 'São Francisco (CNES 2079275)' + titulo
                 
@@ -84,35 +105,36 @@ def activate(titulo, name):
                     cell.alignment = Alignment(horizontal='center', vertical='center')
 
     # NS1 - Colunas que não são hidden: D E F H L R S T U W X
-    elif name == "NS1":
-        ws = wb.active
-        ws.insert_rows(idx=1, amount=1)
+    # elif name == "NS1":
+    #     ws = wb.active
+    #     ws.insert_rows(idx=1, amount=1)
 
-        ws['A1'] = titulo
+    #     ws['A1'] = titulo
 
-        cell = ws['A1']
+    #     cell = ws['A1']
         
-        cell.font = Font(name='Calibri',
-                        size='18',
-                        bold=True)
+    #     cell.font = Font(name='Calibri',
+    #                     size='18',
+    #                     bold=True)
         
-        ws.row_dimensions[1].height = 30
-
-        # for c in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q', 'V','Z'):
-        # Abaixo: Utilizada APENAS quando a sorologia está suspensa! Se há sorologia utilizar a de cima.
-        for c in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q','U', 'V','W', 'X', 'Z'):
-            ws.column_dimensions[c].hidden= True
-            color = c + '2'
-            ws[color].fill = redFill
-        ws.merge_cells('A1:Y1')
-        ws['H2'] = 'DataNasc'
-        ws['A2'] = 'DataSis'
-        ws['X2'] = 'Num'
-        ws['P2'] = 'Proced'
-        for row in range(1,2500):
-            for col in range(1,80):
-                cell = ws.cell(row,col)
-                cell.alignment = Alignment(horizontal='center', vertical='center')
+    #     ws.row_dimensions[1].height = 30
+    #     # for c in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q', 'V','Z'):
+    #     # Abaixo: Utilizada APENAS quando a sorologia está suspensa! Se há sorologia utilizar a de cima.
+    #     # for c in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q','U', 'V','W', 'X', 'Z'):
+        
+    #     for c in ('A', 'B', 'C', 'G', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q', 'V','Z'):
+    #         ws.column_dimensions[c].hidden= True
+    #         color = c + '2'
+    #         ws[color].fill = redFill
+    #     ws.merge_cells('A1:Y1')
+    #     ws['H2'] = 'DataNasc'
+    #     ws['A2'] = 'DataSis'
+    #     ws['X2'] = 'Num'
+    #     ws['P2'] = 'Proced'
+    #     for row in range(1,2500):
+    #         for col in range(1,80):
+    #             cell = ws.cell(row,col)
+    #             cell.alignment = Alignment(horizontal='center', vertical='center')
 
     elif name == "GAL":
         ws = wb.active
@@ -152,24 +174,23 @@ def activate(titulo, name):
         for col in range(1,30):
             cell = ws.cell(2,col)
             cell.font = Font(bold=True)
-        for c in ('A', 'F', 'G', 'J', 'K', 'I', 'M', 'N'):
+        for c in ('A', 'G', 'J', 'K', 'I', 'M', 'N'):
             ws.column_dimensions[c].hidden= True
-        ws.merge_cells('A1:S1')
-        ws['E2'] = "Dist"
+        ws.merge_cells('A1:T1')
         ws['L2'] = "DataNasc"
         for row in range(1,2500):
             for col in range(1,80):
                 cell = ws.cell(row,col)
                 cell.alignment = Alignment(horizontal='center', vertical='center')
 
-    # elif name == "Municipais - Ocultar":
-    #     ws = wb.active
-    #     for c in ('A', 'B', 'C', 'E', 'H', 'J', 'K', 'P'):
-    #         ws.column_dimensions[c].hidden= True                
-    #     for row in range(1,2500):
-    #         for col in range(1,80):
-    #             cell = ws.cell(row,col)
-    #             cell.alignment = Alignment(horizontal='center', vertical='center')
+    elif name == "Municipais - Ocultar":
+        ws = wb.active
+        for c in ('A', 'B', 'C', 'E', 'H', 'J', 'K', 'P'):
+            ws.column_dimensions[c].hidden= True                
+        for row in range(1,2500):
+            for col in range(1,80):
+                cell = ws.cell(row,col)
+                cell.alignment = Alignment(horizontal='center', vertical='center')
 
     elif name == "Banco Dengue":
         ws = wb.active

@@ -28,8 +28,8 @@ radio_var = customtkinter.StringVar(value="other")
 botao1 = customtkinter.CTkRadioButton(master=frame, text="Hapvida", variable= radio_var, value='Hapvida', command=get_rad)
 botao1.pack(pady=12, padx=10)
 
-botao2 = customtkinter.CTkRadioButton(master=frame, text="NS1", variable= radio_var, value='NS1', command=get_rad)
-botao2.pack(pady=12, padx=10)
+# botao2 = customtkinter.CTkRadioButton(master=frame, text="NS1", variable= radio_var, value='NS1', command=get_rad)
+# botao2.pack(pady=12, padx=10)
 
 botao3 = customtkinter.CTkRadioButton(master=frame, text="GAL Dengue", variable= radio_var, value='GAL', command=get_rad)
 botao3.pack(pady=12, padx=10)
@@ -37,8 +37,8 @@ botao3.pack(pady=12, padx=10)
 botao4 = customtkinter.CTkRadioButton(master=frame, text="Sabin", variable= radio_var, value='Sabin', command=get_rad)
 botao4.pack(pady=12, padx=10)
 
-# botao4 = customtkinter.CTkRadioButton(master=frame, text="Municipais - Ocultar", variable= radio_var, value='Municipais - Ocultar', command=get_rad)
-# botao4.pack(pady=12, padx=10)
+botao4 = customtkinter.CTkRadioButton(master=frame, text="Municipais - Ocultar", variable= radio_var, value='Municipais - Ocultar', command=get_rad)
+botao4.pack(pady=12, padx=10)
 
 botao5 = customtkinter.CTkRadioButton(master=frame, text="Mais Saúde", variable= radio_var, value="Mais Saúde", command=get_rad)
 botao5.pack(pady=12, padx=10)
