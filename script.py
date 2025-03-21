@@ -9,7 +9,8 @@ def activate(titulo, name):
     redFill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
     # Hapvida - Colunas que não são hidden: E F P R S U V + W  *** K e M se tiver dengue
     if name == "Hapvida":
-        for k in ('315', '382', '383', '397'):
+        # for k in ('315', '382', '383', '397'):
+        for k in ('382', '383', '397'):
             # ws = wb[k]
 
             # ws.insert_rows(idx=1, amount=1)
@@ -32,19 +33,17 @@ def activate(titulo, name):
             ws = wb[k]
 
             ws.insert_rows(idx=1, amount=1)
-            # ws.delete_cols(1, 1)
-            if k == '315':
-                ws['A1'] = 'Sinha Junq (CNES 2078791) ' + titulo
-            elif k == '382':
+            ws.delete_cols(1, 1)
+            # if k == '315':
+            #     ws['A1'] = 'Sinha Junq (CNES 2078791) ' + titulo
+            if k == '382':
                 ws['A1'] = 'Diag Joao Pent (CNES 9831665) ' + titulo
-                
             elif k == '383':
                 ws['A1'] = 'Diag Jd Sumare (CNES 9564284)' + titulo
-                
             elif k == '397':
                 ws['A1'] = 'São Francisco (CNES 2079275)' + titulo
-                
             cell = ws['A1']
+            
             
             cell.font = Font(name='Calibri',
                             size='18',
@@ -55,16 +54,15 @@ def activate(titulo, name):
             for col in range(1,30):
                 cell = ws.cell(2,col)
                 cell.font = Font(bold=True)
-            for c in ('B', 'C', 'D', 'G', 'H', 'I', 'J', 'L', 'N', 'O', 'Q', 'R', 'T'):
+            for c in ('B', 'C', 'D', 'G', 'H', 'I'):
                 ws.column_dimensions[c].hidden= True
                 color = c + '2'
                 ws[color].fill = redFill
-            ws.merge_cells('A1:X1')
-            ws['X2'] = 'Dist'
+            ws.merge_cells('A1:W1')
             ws['F2'] = 'DataNasc'
             ws['A2'] = 'DataSis'
             ws['P2'] = 'Proced'
-            ws['S2'] = 'Result'
+            ws['Q2'] = 'Result'
             for row in range(1,2500):
                 for col in range(1,80):
                     cell = ws.cell(row,col)
@@ -76,7 +74,7 @@ def activate(titulo, name):
             ws = wb.active
             ws.insert_rows(idx=1, amount=1)
             ws.delete_cols(1, 1)
-            ws['A1'] = 'CNES 2079275' + titulo
+            ws['A1'] = titulo + ' - CNES 4828305'
                 
             cell = ws['A1']
             
@@ -89,16 +87,16 @@ def activate(titulo, name):
             for col in range(1,30):
                 cell = ws.cell(2,col)
                 cell.font = Font(bold=True)
-            for c in ('B', 'C', 'D', 'G', 'H', 'I', 'J', 'L', 'N', 'O', 'Q', 'R', 'T'):
+            for c in ('B', 'C', 'D', 'G', 'H', 'I', 'L', 'M', 'O', 'P', 'R', 'U'):
                 ws.column_dimensions[c].hidden= True
                 color = c + '2'
                 ws[color].fill = redFill
-            ws.merge_cells('A1:X1')
-            ws['X2'] = 'Dist'
+            ws.merge_cells('A1:V1')
+            ws['V2'] = 'Dist'
             ws['F2'] = 'DataNasc'
             ws['A2'] = 'DataSis'
             ws['P2'] = 'Proced'
-            ws['S2'] = 'Result'
+            ws['Q2'] = 'Result'
             for row in range(1,2500):
                 for col in range(1,80):
                     cell = ws.cell(row,col)
